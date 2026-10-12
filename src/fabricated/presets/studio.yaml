@@ -1,0 +1,37 @@
+provider: clearvoice
+provider_model: MossFormer2_SE_48K
+super_resolution_model: MossFormer2_SR_48K
+sample_rate: 48000
+channels: 1
+export_audio: true
+target_lufs: -16.0
+audio_codec: aac
+audio_bitrate: 192k
+post_filter: false
+polish:
+  highpass_hz: 80
+  deesser:
+    intensity: 0.2
+    max_deess: 0.6
+    frequency: 0.55
+  compressor:
+    threshold: 0.08
+    ratio: 2.4
+    attack_ms: 18
+    release_ms: 160
+    makeup: 1.25
+    mix: 0.9
+  speechnorm:
+    peak: 0.95
+    expansion: 1.4
+    compression: 2.0
+    threshold: 0.0
+    raise: 0.001
+    fall: 0.001
+  loudnorm:
+    lra: 7.0
+    true_peak: -1.5
+  limiter:
+    limit: 0.91
+    attack_ms: 5
+    release_ms: 50

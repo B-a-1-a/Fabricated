@@ -1,0 +1,36 @@
+provider: deepfilternet
+provider_model: DeepFilterNet3
+sample_rate: 48000
+channels: 1
+export_audio: true
+target_lufs: -16.0
+audio_codec: aac
+audio_bitrate: 160k
+post_filter: true
+polish:
+  highpass_hz: 75
+  deesser:
+    intensity: 0.14
+    max_deess: 0.45
+    frequency: 0.5
+  compressor:
+    threshold: 0.1
+    ratio: 1.8
+    attack_ms: 15
+    release_ms: 120
+    makeup: 1.1
+    mix: 0.85
+  speechnorm:
+    peak: 0.95
+    expansion: 1.2
+    compression: 1.6
+    threshold: 0.0
+    raise: 0.001
+    fall: 0.001
+  loudnorm:
+    lra: 8.0
+    true_peak: -1.5
+  limiter:
+    limit: 0.92
+    attack_ms: 5
+    release_ms: 45
